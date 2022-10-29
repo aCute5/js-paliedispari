@@ -45,15 +45,26 @@ function checkPalindrome(wordcheck){
 // Se l'utente ha scelto dispari && la somma dei numero %2 != 0 allora ha vinto l'utente
 // ALTRIMENTI HA VINTO IL PC 
 
-const userChoice = prompt("PARI O DISPARI?")
-const userNumber = prompt (" Dimmi un numero da 1 a 5")
-const userpcNumber = Math.floor(Math.random() * 5) + 1;
-const finalScore = userNumber + userpcNumber
-if (finalScore % 2 == 0  && userChoice == ("Pari")){
-    alert("Hai Vinto")
-}if (finalScore % 2 != 0 && userChoice == ("Dispari")) {
-    alert ("Hai Vinto")
-} else {
-    alert ("Hai perso")
+let userChoice = prompt("PARI O DISPARI?")
+let userNumber = prompt(" Dimmi un numero da 1 a 5")
+if (userNumber > 5) {
+    alert("The number can't be more than 5");
 }
-    
+else{
+    let pcNumber = (Math.floor(Math.random() * 5) + 1);
+    let finalScore = parseInt(userNumber) + pcNumber;
+    document.querySelector(".usernumber").innerHTML += userNumber
+    document.querySelector(".pcnumber").innerHTML += pcNumber  
+    document.querySelector(".finalscore").innerHTML += finalScore 
+    if (finalScore % 2 == 0  && userChoice === ("Pari")){
+        alert("Hai Vinto")
+       
+    }if (finalScore % 2 != 0 && userChoice === ("Dispari")){
+        alert ("Hai Vinto")
+        
+    } else {
+        alert ("Hai perso")
+
+}
+}
+
